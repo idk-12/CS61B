@@ -47,6 +47,11 @@ public class IntListTest {
         assertEquals(IntList.of(1, 2, 3), L);
         assertEquals(IntList.of(1, 4, 9), res);
     }
+    @Test
+    public void test(){
+        IntList L = IntList.of(1, 2, 3);
+        IntList A = IntList.squareListIterative(L);
+    }
 
     @Test
     public void testDcatenate() {
