@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 public class ArrayDeque<T>{
+=======
+public class AList<T>{
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
     private T[] items;
     private int size;
     private int nextFirst = 4;
@@ -13,10 +17,17 @@ public class ArrayDeque<T>{
         size = 0;
     }
     public void resize(int length){
+<<<<<<< HEAD
         T[] temp = (T []) new Object[length];
         for (int i = 0; i < size; i++){
             nextFirst = (nextFirst + 1) % items.length;
             temp[i] = items[nextFirst];
+=======
+        T[] temp = (T []) new Object[length]
+        for （int i = 0; i < size; i++){
+            nextFirst = (nextFirst + 1) % items.length;
+            temp[i] = items[nextFirst]；
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
         }
         items = temp;
         nextFirst = length - 1;
@@ -24,7 +35,11 @@ public class ArrayDeque<T>{
     }
     public void addFirst(T item){
         if (size == items.length){
+<<<<<<< HEAD
             resize(2*items.length);
+=======
+            resize(2*items.length)
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
         }
         items[nextFirst] = item;
         size++;
@@ -32,7 +47,12 @@ public class ArrayDeque<T>{
     }
     public void addLast(T item){
         if (size == items.length){
+<<<<<<< HEAD
             resize(2*items.length);
+=======
+            resize(2*items.length){
+            }
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
         }
         items[nextLast] = item;
         nextLast = (nextLast + 1 + items.length) % items.length;
@@ -58,7 +78,11 @@ public class ArrayDeque<T>{
         nextFirst = (nextFirst + 1) % items.length;
         T i = items[nextFirst];
         items[nextFirst] = null;
+<<<<<<< HEAD
         if ((double) size / items.length < 0.25 && items.length > 16){
+=======
+        if ((double) sieze / items.length < 0.25 && items.length > 16){
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
             resize(items.length / 2);
         }
         size --;
@@ -83,5 +107,9 @@ public class ArrayDeque<T>{
         }
         return items[index];
     }
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> 4c23732775208105f8de282ccbbe878120a24cc8
