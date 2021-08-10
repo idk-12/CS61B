@@ -1,4 +1,4 @@
-public class AList<T>{
+public class ArrayDeque<T>{
     private T[] items;
     private int size;
     private int nextFirst = 4;
@@ -13,10 +13,10 @@ public class AList<T>{
         size = 0;
     }
     public void resize(int length){
-        T[] temp = (T []) new Object[length]
-        for （int i = 0; i < size; i++){
+        T[] temp = (T []) new Object[length];
+        for (int i = 0; i < size; i++){
             nextFirst = (nextFirst + 1) % items.length;
-            temp[i] = items[nextFirst]；
+            temp[i] = items[nextFirst];
         }
         items = temp;
         nextFirst = length - 1;
@@ -24,7 +24,7 @@ public class AList<T>{
     }
     public void addFirst(T item){
         if (size == items.length){
-            resize(2*items.length)
+            resize(2*items.length);
         }
         items[nextFirst] = item;
         size++;
@@ -32,8 +32,7 @@ public class AList<T>{
     }
     public void addLast(T item){
         if (size == items.length){
-            resize(2*items.length){
-            }
+            resize(2*items.length);
         }
         items[nextLast] = item;
         nextLast = (nextLast + 1 + items.length) % items.length;
@@ -59,7 +58,7 @@ public class AList<T>{
         nextFirst = (nextFirst + 1) % items.length;
         T i = items[nextFirst];
         items[nextFirst] = null;
-        if ((double) sieze / items.length < 0.25 && items.length > 16){
+        if ((double) size / items.length < 0.25 && items.length > 16){
             resize(items.length / 2);
         }
         size --;
@@ -84,4 +83,5 @@ public class AList<T>{
         }
         return items[index];
     }
+
 }

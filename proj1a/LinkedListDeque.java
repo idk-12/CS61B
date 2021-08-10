@@ -86,5 +86,4 @@ public class LinkedListDeque<T> {
                 return p.item;
         }
 
-
 }
