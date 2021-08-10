@@ -1,49 +1,49 @@
 public class LinkedListDeque<T> {
-    private anyNode sentinel;
+    private AnyNode sentinel;
     private int size;
 
-    private class anyNode {
-        public anyNode prev;
-        public T item;
-        public anyNode next;
-        public anyNode(anyNode m, T i, anyNode n) {
+    private class AnyNode {
+        private AnyNode prev;
+        private T item;
+        private AnyNode next;
+        public AnyNode(AnyNode m, T i, AnyNode n) {
             prev = m;
             item = i;
             next = n;
         }
     }
-    public LinkedListDeque(){
-        sentinel = new anyNode(null, null, null);
-        sentinel = new anyNode(sentinel, null, sentinel);
+    public LinkedListDeque() {
+        sentinel = new AnyNode(null, null, null);
+        sentinel = new AnyNode(sentinel, null, sentinel);
         size = 0;
     }
-    public void addFirst(T item){
-        sentinel.next.prev = new anyNode(sentinel, item, sentinel.next);
-        sentinel.next = sentinel.next.prev;
+    public void addFirst(T item) {
+        sentinel.next = new AnyNode(sentinel, item, sentinel.next);
+        sentinel.next.next.prev = sentinel.next;
         size++;
     }
-    public void addLast(T item){
-        sentinel.prev.next = new anyNode(sentinel.prev, item, sentinel);
-        sentinel.prev = sentinel.prev.next;
+    public void addLast(T item) {
+        sentinel.prev = new AnyNode(sentinel.prev, item, sentinel);
+        sentinel.prev.prev.next = sentinel.prev;
         size++;
     }
-    public boolean isEmpty(){
-        if(size == 0){
+    public boolean isEmpty() {
+        if (size == 0) {
             return true;
         }
         return false;
     }
-    public int size(){
+    public int size() {
         return size;
     }
-    public void printDeque(){
-        anyNode p = sentinel;
-        for(int i = 1; i <= size; i++){
+    public void printDeque() {
+        AnyNode p = sentinel;
+        for (int i = 1; i <= size; i++) {
             System.out.print(p.next.item + " ");
             p = p.next;
         }
     }
-    public T removeFirst(){
+    public T removeFirst() {
         if (size == 0) {
             return null;
         }
@@ -53,7 +53,7 @@ public class LinkedListDeque<T> {
         size -= 1;
         return p;
     }
-    public T removeLast(){
+    public T removeLast() {
         if (size == 0) {
             return null;
         }
@@ -63,23 +63,23 @@ public class LinkedListDeque<T> {
         size -= 1;
         return p;
     }
-    public T get(int index){
-        if(index >= size){
+    public T get(int index) {
+        if (index >= size) {
             return null;
         }
-        anyNode p = sentinel.next;
-        for(int i = 0; i < index; i++){
+        AnyNode p = sentinel.next;
+        for (int i = 0; i < index; i++) {
             p = p.next;
         }
         return p.item;
     }
-    public T getRecursive(int index){
-        if(index >= size){
+    public T getRecursive(int index) {
+        if (index >= size) {
             return null;
         }
         int i = 0;
-        anyNode p = sentinel.next;
-        while(i < index ){
+        AnyNode p = sentinel.next;
+        while (i < index) {
             p = p.next;
             i++;
         }
