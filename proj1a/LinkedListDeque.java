@@ -81,10 +81,10 @@ public class LinkedListDeque<T> {
         }
         return getRecursiveHelper(index, temp);
     }
-    public T getRecursiveHelper(int i, AnyNode it){
-        if (i == 0){
+    private T getRecursiveHelper(int i, AnyNode it) {
+        if (i == 0) {
             return it.item;
         }
-        return getRecursiveHelper(i-1, it.next);
+        return getRecursiveHelper(i - 1, it.next);
     }
 }

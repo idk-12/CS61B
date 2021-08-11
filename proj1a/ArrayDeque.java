@@ -78,7 +78,7 @@ public class ArrayDeque<T> {
         return i;
     }
     public T get(int index) {
-        if (index > size - 1 ||index < 0) {
+        if (index > size - 1 || index < 0) {
             return null;
         }
         int F = nextFirst;
