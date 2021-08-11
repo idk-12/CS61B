@@ -48,8 +48,9 @@ public class LinkedListDeque<T> {
             return null;
         }
         T p = sentinel.next.item;
-        sentinel.next.next.prev = sentinel;
         sentinel.next = sentinel.next.next;
+        sentinel.next.next.prev = sentinel.next;
+        sentinel.next.prev = sentinel;
         size -= 1;
         return p;
     }
@@ -59,6 +60,7 @@ public class LinkedListDeque<T> {
         }
         T p = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
+        sentinel.prev.prev.next = sentinel.prev;
         sentinel.prev.next = sentinel;
         size -= 1;
         return p;
@@ -77,13 +79,15 @@ public class LinkedListDeque<T> {
         if (index >= size) {
             return null;
         }
-        int i = 0;
+        int i = index;
         AnyNode p = sentinel.next;
-        while (i < index) {
-            p = p.next;
-            i++;
+        if (i == 0) {
+            return p.item;
         }
-        return p.item;
+        else {
+            p = p.next;
+            return getRecursive(i--);
+        }
     }
 
 }
