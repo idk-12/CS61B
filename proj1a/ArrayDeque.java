@@ -78,9 +78,13 @@ public class ArrayDeque<T> {
         return i;
     }
     public T get(int index) {
-        if (items[index] == null) {
+        if (index > size - 1 ||index < 0) {
             return null;
         }
-        return items[index];
+        int F = nextFirst;
+        for (int i = 0; i <= index; i++) {
+            F = (F + 1) % items.length;
+        }
+        return items[F];
     }
 }

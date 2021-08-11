@@ -75,16 +75,16 @@ public class LinkedListDeque<T> {
         return p.item;
     }
     public T getRecursive(int index) {
+        AnyNode temp = sentinel.next;
         if (index >= size) {
             return null;
         }
-        int i = index;
-        AnyNode p = sentinel.next;
-        if (i == 0) {
-            return p.item;
-        } else {
-            p = p.next;
-            return getRecursive(i--);
+        return getRecursiveHelper(index, temp);
+    }
+    public T getRecursiveHelper(int i, AnyNode it){
+        if (i == 0){
+            return it.item;
         }
+        return getRecursiveHelper(i-1, it.next);
     }
 }
