@@ -70,4 +70,10 @@ public class IntListTest {
       * to add a main method. See ArithmeticTest.java for an
       * example. */
 
+    @Test
+    public void testReverse() {
+        assertEquals(null, IntList.reverse(null));
+        assertNotEquals(IntList.of(0, 1, 2, 3), IntList.reverse(IntList.of(0, 1, 2, 3)));
+        assertEquals(IntList.of(0, 1, 2, 3), IntList.reverse(IntList.of(3, 2, 1, 0)));
+    }
 }
