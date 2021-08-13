@@ -6,5 +6,5 @@ public interface Deque<T> {
     public void printDeque();
     public T removeFirst();
     public T removeLast();
-    public T get(int index) ;
+    public T get(int index);
 }
