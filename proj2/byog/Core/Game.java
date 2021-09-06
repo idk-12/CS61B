@@ -62,7 +62,7 @@ public class Game implements Serializable {
         Boolean c = true;
         char temp;
 
-        while (c == true) {
+        while (c) {
             if (StdDraw.hasNextKeyTyped()) {
                 temp = StdDraw.nextKeyTyped();
                 if (temp == ':') {
@@ -132,7 +132,7 @@ public class Game implements Serializable {
                     throw new IllegalArgumentException("Tile at position x=" + x + ", y=" + y
                             + " is null.");
                 }
-                world[x][y].draw(x , y);
+                world[x][y].draw(x, y);
             }
         }
     }

@@ -78,10 +78,10 @@ public class HallWay {
                         Math.abs(hw.corner.y - hw.start.y) + 1);
                 DrawHorizontalHallway(world, Position.smallerX(hw.corner, hw.end),
                         Math.abs(hw.end.x - hw.corner.x) + 1);
-                int dirV = (hw.start.y- hw.corner.y) / Math.abs(hw.start.y - hw.corner.y);
+                int dirV = (hw.start.y - hw.corner.y) / Math.abs(hw.start.y - hw.corner.y);
                 int dirH = (hw.end.x - hw.corner.x) / Math.abs(hw.end.x - hw.corner.x);
 
-                if ( world[hw.corner.x - dirH][hw.corner.y - dirV] == Tileset.NOTHING) {
+                if (world[hw.corner.x - dirH][hw.corner.y - dirV] == Tileset.NOTHING) {
                     world[hw.corner.x - dirH][hw.corner.y - dirV] = Tileset.WALL;
                 }
                 break;

@@ -57,7 +57,7 @@ public class World implements Serializable {
         }
         int way = rand.nextInt(2);
 
-        switch(way) {
+        switch (way) {
             case 0: { //draw horizontal hallway first.
                 Position start = Position.smallerX(p1, p2);
                 Position end = Position.largerX(p1, p2);

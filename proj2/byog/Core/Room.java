@@ -45,8 +45,9 @@ public class Room {
         return false;
     }
     public Boolean overindex(int Worldheight, int Worldwidth) {
-        if (this.position.x >= 0 && this.position.y >= 0 && (this.position.x + this.width) <= Worldwidth &&
-                (this.position.y + this.height) <= Worldheight) {
+        if (this.position.x >= 0 && this.position.y >= 0
+                && (this.position.x + this.width) <= Worldwidth
+                && (this.position.y + this.height) <= Worldheight) {
             return false;
         }
         return true;
@@ -73,7 +74,7 @@ public class Room {
             if (x[i] == null) {
                 break;
             }
-            int cmp = x[i].position.x + x[i].position.y- x[smallestIndex].position.x - x[smallestIndex].position.y;
+            int cmp = x[i].position.x + x[i].position.y - x[smallestIndex].position.x - x[smallestIndex].position.y;
             if (cmp < 0) {
                 smallestIndex = i;
             }
