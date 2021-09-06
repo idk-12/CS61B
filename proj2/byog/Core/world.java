@@ -124,26 +124,4 @@ public class World implements Serializable {
         World play = new World(innerworld, player);
         return play;
     }
-
-    public static void main(String[] args) {
-        TERenderer ter = new TERenderer();
-        ter.initialize(WIDTH, HEIGHT);
-        TETile[][] world = new TETile[WIDTH][HEIGHT];
-        long Seed = 999;
-
-        for (int x = 0; x < WIDTH; x += 1) {
-            for (int y = 0; y < HEIGHT; y += 1) {
-                world[x][y] = Tileset.NOTHING;
-            }
-        }
-        Room[] room = RoomGenerate(world, Seed);
-        int i = 0;
-        while (room[i + 1] != null) {
-            HallWayGenerate(world, room[i], room[i + 1], Seed);
-            i++;
-        }
-        AddDoor(world, Seed);
-        AddPlayer(world, Seed);
-        ter.renderFrame(world);
-    }
 }
