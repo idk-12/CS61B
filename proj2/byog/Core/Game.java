@@ -3,7 +3,6 @@ package byog.Core;
 import byog.TileEngine.TERenderer;
 import byog.TileEngine.TETile;
 import byog.TileEngine.Tileset;
-import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.*;
@@ -26,6 +25,7 @@ public class Game implements Serializable {
         while (true) {
             if (StdDraw.hasNextKeyTyped()) {
                 switch (StdDraw.nextKeyTyped()) {
+                    case 'n':
                     case 'N': {
                         String Strseed = NEWworld();
                         int Seed = readNumb(Strseed);
@@ -202,6 +202,10 @@ public class Game implements Serializable {
                 return finalWorldFrame;
             } else {
                 Dworld.player = Move(finalWorldFrame, input.charAt(i), Dworld.player);
+                if (Dworld.world[Dworld.player.x][Dworld.player.y].equals(Tileset.LOCKED_DOOR)) {
+                    System.out.println("YOU WIN!");
+                    return finalWorldFrame;
+                }
             }
         }
         return finalWorldFrame;
